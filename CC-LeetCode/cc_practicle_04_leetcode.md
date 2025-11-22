@@ -142,10 +142,3 @@ class Solution {
 }
 ```
 
----
-
-If you want, I can also:
-- Add C++ / Python versions
-- Add explanation diagrams (especially for Josephus problem)
-- Add viva/interview questions
-- Combine all practicals into one final submission PDF
