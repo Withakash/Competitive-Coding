@@ -233,11 +233,3 @@ class Solution {
 }
 ```
 
----
-
-If you want, I can also:
-- Add diagrams for stack simulation
-- Add C++ / Python versions
-- Add viva/interview questions
-- Format like university practical submission
-
