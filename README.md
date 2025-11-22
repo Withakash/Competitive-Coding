@@ -5,20 +5,6 @@ It is designed for quick revision, clean understanding, and strong practice of c
 
 ---
 
-## 📌 Table of Contents
-
-- [Introduction](#introduction)  
-- [Syllabus Focus](#syllabus-focus)  
-- [Practical Explanations (1–25)](#practical-explanations-1–25)  
-- [Java Starter Files](#java-starter-files)  
-- [Folder Structure](#folder-structure)  
-- [How to Compile & Run (Java)](#how-to-compile--run-java)  
-- [Included Syllabus PDF](#included-syllabus-pdf)  
-- [Recommended Platforms](#recommended-platforms)  
-- [Contribute](#contribute)
-
----
-
 ## Introduction
 
 This repository includes **simple and clear Java starter code** for all practicals listed in the syllabus.  
