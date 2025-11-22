@@ -133,10 +133,3 @@ class MyQueue {
 ```
 
 ---
-
-If you want, I can also:
-- Add **C++ or Python versions**
-- Add **dry-run diagrams**
-- Add **Viva questions** for these two topics
-- Format this file further like your university’s standard submission
-
