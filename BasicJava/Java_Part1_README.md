@@ -155,28 +155,3 @@ Control visibility of class members.
 
 ------------------------------------------------------------------------
 
-# ✅ Part 1 Completed!
-
-This file contains all essential basics you need before learning OOP,
-Collections, and DSA.
-
-------------------------------------------------------------------------
-
-# 📘 Next Parts (Will Be Added Later)
-
--   Part 2: OOP Concepts\
--   Part 3: Java Advanced\
--   Part 4: DSA in Java\
--   Part 5: Coding Problems
-
-------------------------------------------------------------------------
-
-# ⭐ How to Use This README
-
--   Upload to GitHub
--   Use it as your learning notes
--   Update further parts as you learn
-
-------------------------------------------------------------------------
-
-Made with ❤️ for easy Java learning.
