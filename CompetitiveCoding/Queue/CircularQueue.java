@@ -10,78 +10,87 @@
 //
 // Author: Akash yadav
 
-class Queue {
-    private int front, rear, size;
-    private int capacity;
-    private int[] queue;
 
-    Queue(int capacity) {
-        this.capacity = capacity;
-        front = 0;
-        size = 0;
-        rear = -1;
-        queue = new int[capacity];
+
+
+
+
+
+
+public class Practical4_CircularQueue {
+
+    static class CircularQueue {
+        int[] queue;
+        int front, rear, size, capacity;
+
+        // Constructor
+        CircularQueue(int k) {
+            capacity = k;
+            queue = new int[k];
+            front = 0;
+            rear = -1;
+            size = 0;
+        }
+
+        // Enqueue operation
+        boolean enqueue(int value) {
+            if (isFull())
+                return false;
+
+            rear = (rear + 1) % capacity;
+            queue[rear] = value;
+            size++;
+            return true;
+        }
+
+        // Dequeue operation
+        boolean dequeue() {
+            if (isEmpty())
+                return false;
+
+            front = (front + 1) % capacity;
+            size--;
+            return true;
+        }
+
+        // Get front element
+        int Front() {
+            if (isEmpty())
+                return -1;
+            return queue[front];
+        }
+
+        // Get rear element
+        int Rear() {
+            if (isEmpty())
+                return -1;
+            return queue[rear];
+        }
+
+        // Check empty
+        boolean isEmpty() {
+            return size == 0;
+        }
+
+        // Check full
+        boolean isFull() {
+            return size == capacity;
+        }
     }
 
-    // Enqueue operation
-    void enqueue(int item) {
-        if (size == capacity) {
-            System.out.println("Queue is full");
-            return;
-        }
-        rear++;
-        queue[rear] = item;
-        size++;
-        System.out.println(item + " inserted");
-    }
-
-    // Dequeue operation
-    int dequeue() {
-        if (size == 0) {
-            System.out.println("Queue is empty");
-            return -1;
-        }
-        int item = queue[front];
-        front++;
-        size--;
-        return item;
-    }
-
-    // Peek operation
-    int peek() {
-        if (size == 0) {
-            System.out.println("Queue is empty");
-            return -1;
-        }
-        return queue[front];
-    }
-
-    // Display Queue
-    void display() {
-        if (size == 0) {
-            System.out.println("Queue is empty");
-            return;
-        }
-        for (int i = front; i <= rear; i++) {
-            System.out.print(queue[i] + " ");
-        }
-        System.out.println();
-    }
-}
-
-public class Main {
     public static void main(String[] args) {
-        Queue q = new Queue(5);
+
+        CircularQueue q = new CircularQueue(3);
 
         q.enqueue(10);
         q.enqueue(20);
         q.enqueue(30);
 
-        q.display();
+        System.out.println("Front Element: " + q.Front());
 
-        System.out.println("Removed: " + q.dequeue());
-        System.out.println("Front: " + q.peek());
+        q.dequeue();
+        q.enqueue(40);
 
-        q.display();
+        System.out.println("Rear Element: " + q.Rear());
     }
 }
