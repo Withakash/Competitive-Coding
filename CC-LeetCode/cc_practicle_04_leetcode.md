@@ -10,7 +10,7 @@ This file includes the required **two circular-structure problems** for Practica
 
 ---
 
-# **2. Design Circular Queue — LeetCode #622**
+# **1. Design Circular Queue — LeetCode #622**
 
 ### **Problem Statement**
 Design a **circular deque** with the following operations:
