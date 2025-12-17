@@ -4,7 +4,7 @@ This practical focuses on **important linked list operations** including merge p
 
 ---
 
-## 🔵 1️⃣ Find Merge Point of Two Linked Lists
+## 🔵 1️⃣ Find Merge Point of Two Linked Lists (Not Available on the leetcode skip this one)
 
 ### Problem Statement
 Write a program to find the **merge point (intersection node)** of two linked lists.  
@@ -54,7 +54,7 @@ class Solution {
 
 ---
 
-## 🔵 2️⃣ LeetCode — Reverse Linked List
+## 🔵 2️2 LeetCode — Reverse Linked List  #206
 
 🔗 https://leetcode.com/problems/reverse-linked-list/
 
@@ -94,7 +94,7 @@ class Solution {
 
 ---
 
-## 🔵 3️⃣ LeetCode — Linked List Cycle
+## 🔵 3. LeetCode — Linked List Cycle #141
 
 🔗 https://leetcode.com/problems/linked-list-cycle/
 
@@ -138,7 +138,7 @@ class Solution {
 
 ---
 
-## 🔵 4️⃣ LeetCode — Remove Linked List Elements
+## 🔵 4 LeetCode — Remove Linked List Elements #203
 
 🔗 https://leetcode.com/problems/remove-linked-list-elements/
 
