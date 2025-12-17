@@ -10,7 +10,109 @@ This file includes the required **two circular-structure problems** for Practica
 
 ---
 
-# **1. Design Circular Deque — LeetCode #641**
+# **2. Design Circular Queue — LeetCode #622**
+
+### **Problem Statement**
+Design a **circular deque** with the following operations:
+- `MyCircularQueue()`
+- `enQueue()`
+- `deQueue()`
+- `Front()`
+- `Rear()`
+- `isEmpty()`
+- `isFull()`
+
+### **Concept**
+Use a **fixed-size circular array** with three pointers:
+- `front`
+- `rear`
+- `size`
+
+Take care of wrap-around using modulo arithmetic.
+
+### **Example**
+**Input:**
+```
+["MyCircularQueue", "enQueue", "enQueue", "enQueue", "enQueue", "Rear", "isFull", "deQueue", "enQueue", "Rear"]
+[[3], [1], [2], [3], [4], [], [], [], [4], []]
+```
+**Output:**
+```
+[null, true, true, true, false, 3, true, true, true, 4]
+```
+
+### **Java Solution**
+```java
+class MyCircularQueue {
+
+    int capacity;
+    int[] queue;
+    int front;
+    int rear;
+    int size;
+
+    public MyCircularQueue(int k) {
+        capacity = k;
+        queue = new int[capacity];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+    
+    public boolean enQueue(int value) {
+
+        if(isFull()) return false;
+        rear = (rear + 1) % capacity;
+        queue[rear] = value;
+        size++;
+        return true;
+        
+    }
+    
+    public boolean deQueue() {
+
+        if(isEmpty()) return false;
+        front = (front + 1) % capacity;
+        size--;
+        return true;
+           
+    }
+    
+    public int Front() {
+     return isEmpty() ? -1 : queue[front];
+        
+    }
+    
+    public int Rear() {
+     return isEmpty() ? -1 : queue[rear];
+    }
+    
+    public boolean isEmpty() {
+        return size == 0;
+        
+    }
+    
+    public boolean isFull() {
+        return size == capacity;
+    }
+}
+
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * MyCircularQueue obj = new MyCircularQueue(k);
+ * boolean param_1 = obj.enQueue(value);
+ * boolean param_2 = obj.deQueue();
+ * int param_3 = obj.Front();
+ * int param_4 = obj.Rear();
+ * boolean param_5 = obj.isEmpty();
+ * boolean param_6 = obj.isFull();
+ */
+```
+
+
+---
+
+# **2. Design Circular Deque — LeetCode #641**
 
 ### **Problem Statement**
 Design a **circular deque** with the following operations:
@@ -108,7 +210,7 @@ class MyCircularDeque {
 
 ---
 
-# **2. Find the Winner of the Circular Game — LeetCode #1823**
+# **3. Find the Winner of the Circular Game — LeetCode #1823**
 
 ### **Problem Statement**
 Given `n` players in a circle, eliminate every `k`th player until only one remains.
