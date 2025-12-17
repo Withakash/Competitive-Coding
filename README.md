@@ -22,6 +22,10 @@ Each file contains a template you can extend and test. Use these starters to imp
 
 ---
 
+## Leetcode Assignment List :
+[Assignment and Practice Link :](https://leetcode.com/problem-list/v1n7gp5g/)
+
+
 ## Practical Explanations (1–25)
 
 1. **MINSTACK Implementation**  
