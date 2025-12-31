@@ -4,55 +4,103 @@ This practical focuses on **important linked list operations** including merge p
 
 ---
 
-## 🔵 1️⃣ Find Merge Point of Two Linked Lists (Not Available on the leetcode skip this one)
 
-### Problem Statement
-Write a program to find the **merge point (intersection node)** of two linked lists.  
-The merge point is the node at which both linked lists join and share the same reference.
+## 🔴 HackerRank Problem Statement (Exact)
 
----
+**Problem:** Find Merge Point of Two Linked Lists\
+**Link:**
+https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists/problem
 
-### Brief Explanation
-- Use **two pointers**
-- Traverse both lists
-- When a pointer reaches the end, redirect it to the other list
-- They will meet at the merge point
+Given pointers to the head nodes of two linked lists that merge together
+at some point, find the node where the two lists merge. The merge point
+is where both lists point to the same node, i.e. they reference the same
+memory location.
 
----
+It is guaranteed that the two head nodes will be different, and neither
+will be NULL. If the lists share a common node, return that node's
+**value**.
 
-### Java Solution
+**Note:** After the merge point, both lists will share the same node
+pointers.
 
-```java
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int val) {
-        this.val = val;
-        this.next = null;
+### Example
+
+    [List #1] a -> b -> c
+                        \
+                         x -> y -> z -> NULL
+                        /
+    [List #2] p -> q
+
+### Function Description
+
+Complete the `findMergeNode` function.
+
+**Parameters:**
+
+-   `SinglyLinkedListNode head1` --- head of first list\
+-   `SinglyLinkedListNode head2` --- head of second list
+
+**Returns:**
+
+-   `int` --- value of the merge node
+
+------------------------------------------------------------------------
+
+## 📘 Practical Objective
+
+Understand how to detect the **merge point of two singly linked lists**
+by comparing node references (memory locations), not values.
+
+------------------------------------------------------------------------
+
+## ✅ Approach 1: Two Pointer Switching Technique (Optimal)
+
+### Logic
+
+-   Use two pointers `p1` and `p2`
+-   Traverse both lists
+-   When a pointer reaches the end, redirect it to the other list's head
+-   Eventually, both pointers meet at the merge point
+
+### Time & Space Complexity
+
+-   **Time:** O(n + m)
+-   **Space:** O(1)
+
+------------------------------------------------------------------------
+
+## 🧠 Java Code (HackerRank Compatible)
+
+``` java
+static int findMergeNode(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+    SinglyLinkedListNode p1 = head1;
+    SinglyLinkedListNode p2 = head2;
+
+    while (p1 != p2) {
+        p1 = (p1 == null) ? head2 : p1.next;
+        p2 = (p2 == null) ? head1 : p2.next;
     }
-}
-
-class Solution {
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-
-        if (headA == null || headB == null) return null;
-
-        ListNode p1 = headA;
-        ListNode p2 = headB;
-
-        while (p1 != p2) {
-            p1 = (p1 == null) ? headB : p1.next;
-            p2 = (p2 == null) ? headA : p2.next;
-        }
-        return p1;
-    }
+    return p1.data; // merge point value
 }
 ```
 
-**Time Complexity:** O(n + m)  
-**Space Complexity:** O(1)
+------------------------------------------------------------------------
+
+## 🧪 Example Walkthrough
+
+### Input
+
+    List1: 1 → 2 → 3 → 4
+    List2: 9 → 3 → 4
+
+### Output
+
+    3
+
+------------------------------------------------------------------------
 
 ---
+
 
 ## 🔵 2️2 LeetCode — Reverse Linked List  #206
 
