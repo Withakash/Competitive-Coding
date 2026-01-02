@@ -23,11 +23,11 @@ Each file contains a template you can extend and test. Use these starters to imp
 ---
 
 ## Leetcode Assignment List :
-[Assignment and Practice Link :](https://leetcode.com/problem-list/v1n7gp5g/)
+[https://leetcode.com/problem-list/v1n7gp5g/](https://leetcode.com/problem-list/v1n7gp5g/)
 
 
 ## Talentely Code List :
-[Open it :](https://withakash.github.io/cc.talentlyCode/)
+[https://withakash.github.io/cc.talentlyCode/](https://withakash.github.io/cc.talentlyCode/)
 
 
 ## Practical Explanations (1–25)
