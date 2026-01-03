@@ -7,6 +7,8 @@ This practical focuses on **pairwise node swapping** and other important
 
 ## 🔵 1️⃣ Swap Nodes Pairwise in a Linked List
 
+🔗 https://leetcode.com/problems/swap-nodes-in-pairs/description/
+
 ### Problem Statement
 
 Write a program to **swap nodes of a singly linked list pairwise**.
