@@ -4,12 +4,12 @@ This practical focuses on **important linked list operations** including merge p
 
 ---
 
-## 🔵 2️2 LeetCode — Reverse Linked List  #206
+## 🔵 1. Intersection(Merge Point) of Two Linked Lists  #160
 
 🔗 https://leetcode.com/problems/intersection-of-two-linked-lists/description/
 
 ### Problem Statement
-160. Intersection(Merge Point) of Two Linked Lists
+Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.
 
 ---
 
