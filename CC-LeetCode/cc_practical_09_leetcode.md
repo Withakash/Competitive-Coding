@@ -5,7 +5,7 @@ This practical focuses on **pairwise node swapping** and other important
 
 ------------------------------------------------------------------------
 
-## 🔵 1️⃣ Swap Nodes Pairwise in a Linked List
+## 🔵 1️⃣ Swap Nodes Pairwise in a Linked List  #24
 
 🔗 https://leetcode.com/problems/swap-nodes-in-pairs/description/
 
@@ -73,8 +73,8 @@ class Solution {
 **Space Complexity:** O(1)
 
 ------------------------------------------------------------------------
-
-## 🔵 2️⃣ LeetCode --- Next Greater Node in Linked List
+ 
+## 🔵 2️⃣ LeetCode --- Next Greater Node in Linked List   #1019
 
 🔗 https://leetcode.com/problems/next-greater-node-in-linked-list/
 
@@ -109,7 +109,7 @@ class Solution {
 
 ------------------------------------------------------------------------
 
-## 🔵 3️⃣ LeetCode --- Swapping Nodes in a Linked List
+## 🔵 3️⃣ LeetCode --- Swapping Nodes in a Linked List   #1721
 
 🔗 https://leetcode.com/problems/swapping-nodes-in-a-linked-list/
 
@@ -147,7 +147,7 @@ class Solution {
 
 ------------------------------------------------------------------------
 
-## 🔵 4️⃣ LeetCode --- Remove Zero Sum Consecutive Nodes from Linked List
+## 🔵 4️⃣ LeetCode --- Remove Zero Sum Consecutive Nodes from Linked List  #1171
 
 🔗
 https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
