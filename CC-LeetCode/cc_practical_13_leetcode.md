@@ -45,19 +45,15 @@ Given the root of a binary tree, return the **inorder traversal** of its nodesâ€
 
 ```java
 class Solution {
+    List<Integer> res = new ArrayList<>();
     public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
-        inorder(root, res);
+        if(root == null) return res;
+        inorderTraversal(root.left);
+        res.add(root.val);
+        inorderTraversal(root.right);
+
         return res;
     }
-
-    private void inorder(TreeNode root, List<Integer> res) {
-        if (root == null) return;
-        inorder(root.left, res);
-        res.add(root.val);
-        inorder(root.right, res);
-    }
-}
 ```
 
 ### **Java Solution (Iterative using Stack)**
