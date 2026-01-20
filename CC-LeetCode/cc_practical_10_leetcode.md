@@ -55,6 +55,38 @@ class Solution {
 }
 ```
 
+
+### **Java Solution (Inorder Mathod)**
+
+```java
+class Solution {
+
+    private Integer prev = null;
+
+    public boolean isValidBST(TreeNode root) {
+
+        // Base case: empty tree is a valid BST
+        if (root == null)
+            return true;
+
+        // Check left subtree
+        if (!isValidBST(root.left))
+            return false;
+
+        // Inorder condition: current value must be greater than previous
+        if (prev != null && root.val <= prev)
+            return false;
+
+        // Update previous value
+        prev = root.val;
+
+        // Check right subtree
+        return isValidBST(root.right);
+    }
+}
+
+```
+
 ---
 
 # 🟢 **2. Recover Binary Search Tree — LeetCode #99**
