@@ -52,30 +52,30 @@ Each level should be returned as a separate list.
 ## ✅ Java Solution (Using Queue – BFS)
 
 ```java
+import java.util.*;
+
 class Solution {
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> result = new ArrayList<>();
+    public List<Integer> levelOrder(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
         if (root == null) return result;
 
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
 
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            List<Integer> level = new ArrayList<>();
+        while (!q.isEmpty()) {
+            TreeNode curr = q.poll();
+            result.add(curr.val);
 
-            for (int i = 0; i < size; i++) {
-                TreeNode node = queue.poll();
-                level.add(node.val);
+            if (curr.left != null)
+                q.add(curr.left);
 
-                if (node.left != null) queue.offer(node.left);
-                if (node.right != null) queue.offer(node.right);
-            }
-            result.add(level);
+            if (curr.right != null)
+                q.add(curr.right);
         }
         return result;
     }
 }
+
 ```
 
 ---
