@@ -66,13 +66,11 @@ class Solution {
         inorder(root);
 
         System.out.println(res);
-        long prev = Long.MIN_VALUE;
-        for(int x: res){
-           if(prev >= x) return false;
-           prev = x;
-        }
-        
-        return true;
+        for (int i = 1; i < res.size(); i++) {
+            if (res.get(i) <= res.get(i - 1))
+             return false;
+      }
+         return true;
     }
 
     public List<Integer> inorder(TreeNode root) {
