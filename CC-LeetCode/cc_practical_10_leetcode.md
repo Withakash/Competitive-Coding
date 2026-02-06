@@ -61,27 +61,28 @@ class Solution {
 ```java
 class Solution {
 
-    private Integer prev = null;
-
+    List<Integer> res = new ArrayList<>();
     public boolean isValidBST(TreeNode root) {
+        inorder(root);
 
-        // Base case: empty tree is a valid BST
-        if (root == null)
-            return true;
+        System.out.println(res);
+        long prev = Long.MIN_VALUE;
+        for(int x: res){
+           if(prev >= x) return false;
+           prev = x;
+        }
+        
+        return true;
+    }
 
-        // Check left subtree
-        if (!isValidBST(root.left))
-            return false;
+    public List<Integer> inorder(TreeNode root) {
+        if(root == null) return res;
+        
+        inorder(root.left);
+        res.add(root.val);
+        inorder(root.right);
 
-        // Inorder condition: current value must be greater than previous
-        if (prev != null && root.val <= prev)
-            return false;
-
-        // Update previous value
-        prev = root.val;
-
-        // Check right subtree
-        return isValidBST(root.right);
+        return res;
     }
 }
 
