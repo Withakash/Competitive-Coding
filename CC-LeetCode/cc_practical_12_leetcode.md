@@ -122,6 +122,49 @@ class Solution {
 }
 ```
 
+
+### **Java Solution**
+
+```java
+import java.util.*;
+
+class Solution {
+    public int minDepth(TreeNode root) {
+
+        if (root == null) return 0;
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+
+        int depth = 1;   // root level
+
+        while (!q.isEmpty()) {
+
+            int size = q.size();   // nodes at current level
+
+            for (int i = 0; i < size; i++) {
+                TreeNode curr = q.poll();
+
+                // ⭐ FIRST leaf found → answer
+                if (curr.left == null && curr.right == null)
+                    return depth;
+
+                if (curr.left != null)
+                    q.add(curr.left);
+
+                if (curr.right != null)
+                    q.add(curr.right);
+            }
+
+            depth++;   // move to next level
+        }
+
+        return depth;
+    }
+}
+
+```
+
 ### **Time & Space Complexity**
 
 * **Time:** O(n)
