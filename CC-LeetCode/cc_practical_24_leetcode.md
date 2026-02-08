@@ -17,7 +17,7 @@ At each level of the tree, **only the first node** encountered (from left to rig
 
 ---
 
-# 🟢 **Left View of Binary Tree — Based on LeetCode #199**
+# 🟢 **Right View of Binary Tree — Based on LeetCode #199**
 
 🔗 [https://leetcode.com/problems/binary-tree-right-side-view/](https://leetcode.com/problems/binary-tree-right-side-view/)
 
@@ -71,7 +71,13 @@ class Solution {
 
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                if (i == 0) result.add(node.val); // first node of level
+
+
+                  //(if (i == 0) result.add(node.val); // first node of level) for left side view this logic
+
+                // ⭐ last node of this level
+                if (i == size - 1)
+                    result.add(node.val);
 
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
