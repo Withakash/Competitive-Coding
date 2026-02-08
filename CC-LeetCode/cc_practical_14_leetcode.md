@@ -53,49 +53,81 @@ To solve this problem, divide the traversal into three parts:
 ## ✅ Java Solution
 
 ```java
+
+import java.util.*;
+
 class Solution {
+
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         if (root == null) return res;
-        if (!isLeaf(root)) res.add(root.val);
 
+        res.add(root.val);
+
+        // 1️⃣ Left boundary (excluding leaves)
         addLeftBoundary(root.left, res);
-        addLeaves(root, res);
+
+        // 2️⃣ All leaf nodes
+        addLeaves(root.left, res);
+        addLeaves(root.right, res);
+
+        // 3️⃣ Right boundary (excluding leaves, bottom-up)
         addRightBoundary(root.right, res);
 
         return res;
     }
 
-    private void addLeftBoundary(TreeNode node, List<Integer> res) {
+    // Add left boundary (top-down)
+    void addLeftBoundary(TreeNode node, List<Integer> res) {
         while (node != null) {
-            if (!isLeaf(node)) res.add(node.val);
-            node = (node.left != null) ? node.left : node.right;
+            if (!isLeaf(node))
+                res.add(node.val);
+
+            if (node.left != null)
+                node = node.left;
+            else
+                node = node.right;
         }
     }
 
-    private void addRightBoundary(TreeNode node, List<Integer> res) {
-        Stack<Integer> stack = new Stack<>();
-        while (node != null) {
-            if (!isLeaf(node)) stack.push(node.val);
-            node = (node.right != null) ? node.right : node.left;
-        }
-        while (!stack.isEmpty()) res.add(stack.pop());
-    }
-
-    private void addLeaves(TreeNode node, List<Integer> res) {
+    // Add all leaf nodes (DFS)
+    void addLeaves(TreeNode node, List<Integer> res) {
         if (node == null) return;
+
         if (isLeaf(node)) {
             res.add(node.val);
             return;
         }
+
         addLeaves(node.left, res);
         addLeaves(node.right, res);
     }
 
-    private boolean isLeaf(TreeNode node) {
+    // Add right boundary (bottom-up)
+    void addRightBoundary(TreeNode node, List<Integer> res) {
+        Stack<Integer> st = new Stack<>();
+
+        while (node != null) {
+            if (!isLeaf(node))
+                st.push(node.val);
+
+            if (node.right != null)
+                node = node.right;
+            else
+                node = node.left;
+        }
+
+        // reverse order
+        while (!st.isEmpty())
+            res.add(st.pop());
+    }
+
+    boolean isLeaf(TreeNode node) {
         return node.left == null && node.right == null;
     }
 }
+
+
 ```
 
 ---
