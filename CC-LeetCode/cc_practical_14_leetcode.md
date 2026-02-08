@@ -54,31 +54,35 @@ To solve this problem, divide the traversal into three parts:
 
 ```java
 
+
 import java.util.*;
 
 class Solution {
 
+    List<Integer> res = new ArrayList<>();   // 🌍 GLOBAL RESULT LIST
+
     public List<Integer> boundaryOfBinaryTree(TreeNode root) {
-        List<Integer> res = new ArrayList<>();
         if (root == null) return res;
 
+        // Add root (only once)
         res.add(root.val);
 
-        // 1️⃣ Left boundary (excluding leaves)
-        addLeftBoundary(root.left, res);
+        // Left Boundary (excluding leaves)
+        addLeftBoundary(root.left);
 
-        // 2️⃣ All leaf nodes
-        addLeaves(root.left, res);
-        addLeaves(root.right, res);
+        // Leaf Nodes
+        addLeaves(root.left);
+        addLeaves(root.right);
 
-        // 3️⃣ Right boundary (excluding leaves, bottom-up)
-        addRightBoundary(root.right, res);
+        // Right Boundary (excluding leaves, bottom-up)
+        addRightBoundary(root.right);
 
         return res;
     }
 
-    // Add left boundary (top-down)
-    void addLeftBoundary(TreeNode node, List<Integer> res) {
+    // ---------------- Helper Methods ----------------
+
+    void addLeftBoundary(TreeNode node) {
         while (node != null) {
             if (!isLeaf(node))
                 res.add(node.val);
@@ -90,8 +94,7 @@ class Solution {
         }
     }
 
-    // Add all leaf nodes (DFS)
-    void addLeaves(TreeNode node, List<Integer> res) {
+    void addLeaves(TreeNode node) {
         if (node == null) return;
 
         if (isLeaf(node)) {
@@ -99,17 +102,16 @@ class Solution {
             return;
         }
 
-        addLeaves(node.left, res);
-        addLeaves(node.right, res);
+        addLeaves(node.left);
+        addLeaves(node.right);
     }
 
-    // Add right boundary (bottom-up)
-    void addRightBoundary(TreeNode node, List<Integer> res) {
-        Stack<Integer> st = new Stack<>();
+    void addRightBoundary(TreeNode node) {
+        Stack<Integer> stack = new Stack<>();
 
         while (node != null) {
             if (!isLeaf(node))
-                st.push(node.val);
+                stack.push(node.val);
 
             if (node.right != null)
                 node = node.right;
@@ -117,9 +119,10 @@ class Solution {
                 node = node.left;
         }
 
-        // reverse order
-        while (!st.isEmpty())
-            res.add(st.pop());
+        // Add in reverse order
+        while (!stack.isEmpty()) {
+            res.add(stack.pop());
+        }
     }
 
     boolean isLeaf(TreeNode node) {
@@ -127,8 +130,6 @@ class Solution {
     }
 }
 
-
-```
 
 ---
 
