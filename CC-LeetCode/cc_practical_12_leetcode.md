@@ -41,7 +41,7 @@ Given the root of a binary tree, return its **maximum depth**.
 * Fundamental binary tree problem
 * Base for almost all tree algorithms
 
-### **Java Solution**
+### **Java Solution (Recursive)**
 
 ```java
 class Solution {
@@ -52,6 +52,38 @@ class Solution {
 }
 ```
 
+
+### **Java Solution (Recursive)**
+
+```java
+class Solution {
+    public int maxDepth(TreeNode root) {
+
+        if (root == null) return 0;
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+
+        int depth = 0;
+
+        while (!q.isEmpty()) {
+            int size = q.size();  // number of nodes in current level
+            depth++;              // completed one level
+
+            while(size-- > 0) {
+                TreeNode curr = q.poll();
+
+                if (curr.left != null)
+                    q.add(curr.left);
+
+                if (curr.right != null)
+                    q.add(curr.right);
+            }
+        }
+        return depth;
+    }
+}
+```
 ### **Time & Space Complexity**
 
 * **Time:** O(n)
