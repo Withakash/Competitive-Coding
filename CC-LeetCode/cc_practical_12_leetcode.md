@@ -53,7 +53,7 @@ class Solution {
 ```
 
 
-### **Java Solution (Recursive)**
+### **Java Solution (Iterative)**
 
 ```java
 class Solution {
