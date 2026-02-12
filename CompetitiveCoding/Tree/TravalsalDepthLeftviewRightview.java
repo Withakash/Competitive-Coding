@@ -178,7 +178,7 @@ class BST {
       System.out.println("Postorder");
     
         List<List<Integer>> res = bstree.levelorder(bstree.root);
-         System.out.println(res);
+         System.out.println(res + " : Level Order");
          
          int hb = bstree.depthofBST(bstree.root);
          System.out.println("Depth of BST : "+hb);
