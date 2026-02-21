@@ -129,7 +129,89 @@ class MyHashMap {
 
 [https://leetcode.com/problems/design-hashmap/](https://leetcode.com/problems/design-hashmap/)
 
-Concept: Build hashmap from scratch (same as this problem)
+### Concept
+
+Build a custom HashMap using **separate chaining (LinkedList)**.
+
+### Why Practice
+
+* Understand internal working of HashMap
+* Important for interviews
+
+### Java Solution
+
+```java
+class MyHashMap {
+    class Node {
+        int key, value;
+        Node next;
+        Node(int k, int v) {
+            key = k;
+            value = v;
+        }
+    }
+
+    private Node[] buckets;
+    private int size = 1000;
+
+    public MyHashMap() {
+        buckets = new Node[size];
+    }
+
+    private int hash(int key) {
+        return key % size;
+    }
+
+    public void put(int key, int value) {
+        int index = hash(key);
+        Node head = buckets[index];
+
+        if (head == null) {
+            buckets[index] = new Node(key, value);
+            return;
+        }
+
+        Node curr = head;
+        while (true) {
+            if (curr.key == key) {
+                curr.value = value;
+                return;
+            }
+            if (curr.next == null) break;
+            curr = curr.next;
+        }
+        curr.next = new Node(key, value);
+    }
+
+    public int get(int key) {
+        int index = hash(key);
+        Node curr = buckets[index];
+
+        while (curr != null) {
+            if (curr.key == key) return curr.value;
+            curr = curr.next;
+        }
+        return -1;
+    }
+
+    public void remove(int key) {
+        int index = hash(key);
+        Node curr = buckets[index], prev = null;
+
+        while (curr != null) {
+            if (curr.key == key) {
+                if (prev == null)
+                    buckets[index] = curr.next;
+                else
+                    prev.next = curr.next;
+                return;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+    }
+}
+```
 
 ---
 
