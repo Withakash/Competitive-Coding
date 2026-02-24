@@ -90,6 +90,26 @@ class BST {
         addleaf(curr.left);
         addleaf(curr.right);
     }
+
+  //   #Add leaf using BFS
+
+  //   void addleaf(Node root) {
+  //   if (root == null) return;
+
+  //   Queue<Node> q = new LinkedList<>();
+  //   q.add(root);
+
+  //   while (!q.isEmpty()) {
+  //       Node curr = q.poll();
+
+  //       if (isLeaf(curr)) {
+  //           res.add(curr.data);
+  //       }
+
+  //       if (curr.left != null) q.add(curr.left);
+  //       if (curr.right != null) q.add(curr.right);
+  //     }
+  // }
     
     void addright(Node curr) {
         Stack<Integer> st = new Stack<>();
