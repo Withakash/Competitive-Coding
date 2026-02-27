@@ -17,6 +17,14 @@ Boundary traversal (anticlockwise) consists of:
 
 ---
 
+# 🟢 **Boundary of Binary Tree — GFG**
+
+🔗 [https://www.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1](https://www.geeksforgeeks.org/problems/boundary-traversal-of-binary-tree/1)
+
+---
+
+---
+
 # 🟢 **Boundary of Binary Tree — LeetCode #545**
 
 🔗 [https://leetcode.com/problems/boundary-of-binary-tree/](https://leetcode.com/problems/boundary-of-binary-tree/)
