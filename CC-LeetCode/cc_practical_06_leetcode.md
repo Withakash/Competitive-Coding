@@ -12,44 +12,53 @@ Each problem includes:
 
 ---
 
-# 🔵 **1. LeetCode 628 — Maximum Product of Three Numbers**
+---
+
+# 🟢 **1. GFG — Product of Three Largest Distinct Elements (Exact Match)**
 
 ### **Why Related?**
 
-* Very similar logic: find **top 3 largest numbers**.
-* Can be solved using **PriorityQueue** or sorting.
-* Handles negative numbers influencing product.
+* This is the **exact problem** you asked for.
+* Solvable using:
 
-### **Problem Summary**
-
-Given an integer array `nums`, return the **maximum product of any three numbers**.
+  * Max Heap
+  * Sorting
+  * Three-variable tracking
 
 ### **Java Solution (Using Priority Queue)**
 
 ```java
 class Solution {
-    public int maximumProduct(int[] nums) {
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+    public static long maxProduct(long[] arr) {
+        PriorityQueue<Long> pq = new PriorityQueue<>(Collections.reverseOrder());
 
-        for (int num : nums) {
-            maxHeap.offer(num);
-            minHeap.offer(num);
+        for (long x : arr) pq.add(x);
+
+        long a = pq.poll();
+
+        long b = Long.MIN_VALUE;
+        while (!pq.isEmpty()) {
+            long x = pq.poll();
+            if (x != a) { b = x; break; }
         }
 
-        // Get the three largest
-        int a = maxHeap.poll();
-        int b = maxHeap.poll();
-        int c = maxHeap.poll();
+        long c = Long.MIN_VALUE;
+        while (!pq.isEmpty()) {
+            long x = pq.poll();
+            if (x != a && x != b) { c = x; break; }
+        }
 
-        // Get the two smallest
-        int x = minHeap.poll();
-        int y = minHeap.poll();
+        if (b == Long.MIN_VALUE || c == Long.MIN_VALUE) return -1; // not enough distinct elements
 
-        return Math.max(a * b * c, a * x * y);
+        return a * b * c;
     }
 }
 ```
+
+---
+
+
+
 
 ---
 
@@ -112,50 +121,44 @@ class Solution {
     }
 }
 ```
-
----
-
-# 🟢 **4. GFG — Product of Three Largest Distinct Elements (Exact Match)**
+# 🔵 **4. LeetCode 628 — Maximum Product of Three Numbers**
 
 ### **Why Related?**
 
-* This is the **exact problem** you asked for.
-* Solvable using:
+* Very similar logic: find **top 3 largest numbers**.
+* Can be solved using **PriorityQueue** or sorting.
+* Handles negative numbers influencing product.
 
-  * Max Heap
-  * Sorting
-  * Three-variable tracking
+### **Problem Summary**
+
+Given an integer array `nums`, return the **maximum product of any three numbers**.
 
 ### **Java Solution (Using Priority Queue)**
 
 ```java
 class Solution {
-    public static long maxProduct(long[] arr) {
-        PriorityQueue<Long> pq = new PriorityQueue<>(Collections.reverseOrder());
+    public int maximumProduct(int[] nums) {
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
 
-        for (long x : arr) pq.add(x);
-
-        long a = pq.poll();
-
-        long b = Long.MIN_VALUE;
-        while (!pq.isEmpty()) {
-            long x = pq.poll();
-            if (x != a) { b = x; break; }
+        for (int num : nums) {
+            maxHeap.offer(num);
+            minHeap.offer(num);
         }
 
-        long c = Long.MIN_VALUE;
-        while (!pq.isEmpty()) {
-            long x = pq.poll();
-            if (x != a && x != b) { c = x; break; }
-        }
+        // Get the three largest
+        int a = maxHeap.poll();
+        int b = maxHeap.poll();
+        int c = maxHeap.poll();
 
-        if (b == Long.MIN_VALUE || c == Long.MIN_VALUE) return -1; // not enough distinct elements
+        // Get the two smallest
+        int x = minHeap.poll();
+        int y = minHeap.poll();
 
-        return a * b * c;
+        return Math.max(a * b * c, a * x * y);
     }
 }
 ```
-
 ---
 
 # 🟢 **5. GFG — K Largest Elements**
