@@ -1,22 +1,45 @@
 
-class Main {
+class HashTable {
+      int size;
+      int[] tab;
+      
+      HashTable(int size)  {
+          this.size = size;
+          tab = new int[size];
+      }
+      
+      int getIndex(int key) {
+          return key % size ; 
+      }
+     
+      void insert(int key, int value) {
+          int index = getIndex(key);
+          tab[index] = value;
+          System.out.println(value + " inserted at index : " + index);
+      }
+      
+      void search(int key) {
+          int index = getIndex(key);
+          System.out.println(tab[index] + " : Value available at key -> " + key);
+      }
+      
+      void print() {
+          for(int i : tab) 
+           System.out.print(i + " ");
+      }
+    
+     
     public static void main(String[] args) {
-        int[] arr = new int[]{127,238,1635,14};
-        int key = 24;
-        int size = arr.length +1;
-        int[] helper = new int[size];
-        
-        //insert
-        for(int i = 0 ; i < size-1 ; i++) {
-            int index = arr[i] % size;
-            helper[index] = arr[i];
-        }
-        
-        for(int x = 0 ; x < helper.length ; x++)
-        System.out.print(helper[x] + " ");
-       
-        
-        if(helper[key % size] == key ) System.out.println("Number found ");
-        else System.out.println("Not Found");
+      HashTable tab = new HashTable(10);
+      tab.insert(10,2222);
+      tab.insert(22,3333);
+      tab.insert(28,4444);
+      tab.insert(11,5555);
+      
+      tab.search(11);
+      System.out.println();
+      tab.print();
+      
+      
     }
 }
